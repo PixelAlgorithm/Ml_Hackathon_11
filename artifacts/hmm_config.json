@@ -1,10 +1,10 @@
 {
-  "beta_m": 1.8896403021495891,
-  "route_cutoff_m": 210.94408388240032,
-  "max_gap_s": 45.0,
+  "beta_m": 1.177968450773493,
+  "route_cutoff_m": 212.29661982773186,
+  "max_gap_s": 48.0,
   "backward_tol_m": 25.0,
-  "uturn_penalty": 4.391011843107027,
-  "emission_weight": 2.0431561842153894,
+  "uturn_penalty": 7.33255606476118,
+  "emission_weight": 1.3009441479399553,
   "sigma_m": 15.0,
   "tuned_for_scorer": "classifier"
 }

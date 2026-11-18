@@ -1,0 +1,65 @@
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-11-18 15:17:08,529 INFO pathsnap.pipeline | HMM config loaded from /Users/prajwalm/Desktop/ML Hackathon/Ml Project/Ml_Hackathon_11/artifacts/hmm_config.json: {'beta_m': 1.177968450773493, 'route_cutoff_m': 212.29661982773186, 'max_gap_s': 48.0, 'backward_tol_m': 25.0, 'uturn_penalty': 7.33255606476118, 'emission_weight': 1.3009441479399553, 'sigma_m': 15.0}
+2026-11-18 15:17:08,529 INFO pathsnap.api | data=/Users/prajwalm/Desktop/ML Hackathon/PathSnap_student_materials/Student folder partition=student_test scorer=classifier trips=10
+2026-11-18 15:17:08,717 INFO pathsnap.pipeline | preloaded+warmed 00000000 in 0.2s
+2026-11-18 15:17:08,812 INFO pathsnap.pipeline | preloaded+warmed 00000007 in 0.1s
+2026-11-18 15:17:08,941 INFO pathsnap.pipeline | preloaded+warmed 00000009 in 0.1s
+2026-11-18 15:17:09,170 INFO pathsnap.pipeline | preloaded+warmed 00000040 in 0.2s
+2026-11-18 15:17:09,195 INFO pathsnap.pipeline | preloaded+warmed 00000052 in 0.0s
+2026-11-18 15:17:09,511 INFO pathsnap.pipeline | preloaded+warmed 00000056 in 0.3s
+2026-11-18 15:17:09,586 INFO pathsnap.pipeline | preloaded+warmed 00000065 in 0.1s
+2026-11-18 15:17:09,794 INFO pathsnap.pipeline | preloaded+warmed 00000076 in 0.2s
+2026-11-18 15:17:10,117 INFO pathsnap.pipeline | preloaded+warmed 00000077 in 0.3s
+2026-11-18 15:17:10,206 INFO pathsnap.pipeline | preloaded+warmed 00000091 in 0.1s
+2026-11-18 15:17:10,206 INFO pathsnap.api | READY
+2026-11-18 15:17:10,208 INFO pathsnap.api | GET /health -> 200 (1 ms) from testclient
+2026-11-18 15:17:10,208 INFO httpx | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,209 INFO pathsnap.api | GET /trips -> 200 (1 ms) from testclient
+2026-11-18 15:17:10,210 INFO httpx | HTTP Request: GET http://testserver/trips "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,386 INFO pathsnap.api | trip 00000000: route F1 0.988 (classifier-only 0.929), continuity 0.983, 4 breaks, 172 ms
+2026-11-18 15:17:10,387 INFO pathsnap.api | POST /predict -> 200 (176 ms) from testclient
+2026-11-18 15:17:10,387 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,481 INFO pathsnap.api | trip 00000007: route F1 0.997 (classifier-only 0.963), continuity 1.000, 0 breaks, 91 ms
+2026-11-18 15:17:10,482 INFO pathsnap.api | POST /predict -> 200 (94 ms) from testclient
+2026-11-18 15:17:10,482 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,577 INFO pathsnap.api | trip 00000009: route F1 0.951 (classifier-only 0.825), continuity 1.000, 0 breaks, 90 ms
+2026-11-18 15:17:10,578 INFO pathsnap.api | POST /predict -> 200 (94 ms) from testclient
+2026-11-18 15:17:10,578 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,794 INFO pathsnap.api | trip 00000040: route F1 0.990 (classifier-only 0.875), continuity 1.000, 0 breaks, 211 ms
+2026-11-18 15:17:10,796 INFO pathsnap.api | POST /predict -> 200 (216 ms) from testclient
+2026-11-18 15:17:10,796 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:10,817 INFO pathsnap.api | trip 00000052: route F1 0.998 (classifier-only 0.931), continuity 1.000, 0 breaks, 18 ms
+2026-11-18 15:17:10,817 INFO pathsnap.api | POST /predict -> 200 (20 ms) from testclient
+2026-11-18 15:17:10,817 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:11,126 INFO pathsnap.api | trip 00000056: route F1 0.953 (classifier-only 0.881), continuity 0.995, 8 breaks, 276 ms
+2026-11-18 15:17:11,128 INFO pathsnap.api | POST /predict -> 200 (310 ms) from testclient
+2026-11-18 15:17:11,129 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:11,193 INFO pathsnap.api | trip 00000065: route F1 0.908 (classifier-only 0.795), continuity 0.987, 3 breaks, 60 ms
+2026-11-18 15:17:11,193 INFO pathsnap.api | POST /predict -> 200 (62 ms) from testclient
+2026-11-18 15:17:11,193 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:11,339 INFO pathsnap.api | trip 00000076: route F1 0.973 (classifier-only 0.760), continuity 1.000, 0 breaks, 142 ms
+2026-11-18 15:17:11,340 INFO pathsnap.api | POST /predict -> 200 (146 ms) from testclient
+2026-11-18 15:17:11,340 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:11,652 INFO pathsnap.api | trip 00000077: route F1 0.978 (classifier-only 0.697), continuity 1.000, 0 breaks, 304 ms
+2026-11-18 15:17:11,654 INFO pathsnap.api | POST /predict -> 200 (312 ms) from testclient
+2026-11-18 15:17:11,654 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+2026-11-18 15:17:11,727 INFO pathsnap.api | trip 00000091: route F1 0.993 (classifier-only 0.823), continuity 1.000, 0 breaks, 68 ms
+2026-11-18 15:17:11,728 INFO pathsnap.api | POST /predict -> 200 (71 ms) from testclient
+2026-11-18 15:17:11,728 INFO httpx | HTTP Request: POST http://testserver/predict "HTTP/1.1 200 OK"
+health: {'status': 'ok', 'scorer': 'classifier', 'n_trips': 10}
+trips listed: 10
+
+trip       http      ms points  F1 hmm  F1 cls  cont. jumps breaks  status
+--------------------------------------------------------------------------
+00000000    200     177   2503   0.988   0.929  0.983     4      4  OK
+00000007    200      95   1354   0.997   0.963  1.000     0      0  OK
+00000009    200      95   1049   0.951   0.825  1.000     0      0  OK
+00000040    200     217   2995   0.990   0.875  1.000     0      0  OK
+00000052    200      21    262   0.998   0.931  1.000     0      0  OK
+00000056    200     311   3958   0.953   0.881  0.995     8      8  OK
+00000065    200      63    768   0.908   0.795  0.987     2      3  OK
+00000076    200     147   1486   0.973   0.760  1.000     0      0  OK
+00000077    200     313   3911   0.978   0.697  1.000     0      0  OK
+00000091    200      72    874   0.993   0.823  1.000     0      0  OK
+
+ALL OK

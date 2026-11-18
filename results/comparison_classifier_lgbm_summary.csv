@@ -1,0 +1,7 @@
+scorer,metric,classifier_only,hmm,n_trips,hmm_config
+classifier,route_precision,0.7602205746014264,0.9562411283214622,10,artifacts/hmm_config.json
+classifier,route_recall,0.9726799897592479,0.9904346536830765,10,artifacts/hmm_config.json
+classifier,route_f1,0.848124177511059,0.9727334555553305,10,artifacts/hmm_config.json
+classifier,continuity,0.7071750313598006,0.9965414263042547,10,artifacts/hmm_config.json
+classifier,jumps,206.9,1.4,10,artifacts/hmm_config.json
+classifier,pointwise_accuracy,0.82345107081398,0.8971955130526222,10,artifacts/hmm_config.json

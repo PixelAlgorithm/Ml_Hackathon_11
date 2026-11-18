@@ -77,3 +77,10 @@ After the real model exists, re-run `tune_decoder --scorer classifier --write-ar
 - UI cannot reach the API - use `--host 0.0.0.0`, the laptop's LAN IP, same network, firewall open on 8000; CORS is open by default.
 - `/predict` 404 - trip id not in the served partition (check `GET /trips`).
 - First request slow - ensure `PATHSNAP_PRELOAD=1` and wait for `READY`.
+
+## UI (`ui/index.html`)
+Static page (Leaflet + plain JS, no build). Start the API, then either open `ui/index.html`
+in a browser or `cd ui && python -m http.server 5173` and visit `http://localhost:5173`.
+Set the API address in the sidebar (e.g. `http://<laptop-1-ip>:8000`), pick a trip, press
+Predict. It only calls `/health`, `/trips`, `/predict`; metrics come from the server and the
+reference route is never sent to the browser. Map tiles and Leaflet load from the internet.

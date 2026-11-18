@@ -1,1 +1,1 @@
-{"positive_class": 1, "temperature": 1.0}
+{"positive_class": 1, "temperature": 1.0, "features": ["distance_m", "log_distance_m", "arc_length_m", "heading_alignment", "speed_mps", "log_dt_prev_s", "progress_on_arc", "endpoint_distance_m", "out_degree_from", "in_degree_to"]}

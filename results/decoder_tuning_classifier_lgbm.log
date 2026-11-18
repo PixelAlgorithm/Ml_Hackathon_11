@@ -1,0 +1,74 @@
+trial   0 train F1 0.9422 | student_test F1 0.9659 | 9.5s
+trial   1 train F1 0.9364 | student_test F1 0.9619 | 14.0s
+trial   2 train F1 0.9409 | student_test F1 0.9649 | 10.7s
+trial   3 train F1 0.9402 | student_test F1 0.9614 | 11.0s
+trial   4 train F1 0.9548 | student_test F1 0.9711 | 7.0s
+trial   5 train F1 0.9304 | student_test F1 0.9585 | 14.9s
+trial   6 train F1 0.9487 | student_test F1 0.9682 | 6.9s
+trial   7 train F1 0.9373 | student_test F1 0.9638 | 13.9s
+trial   8 train F1 0.9334 | student_test F1 0.9567 | 11.6s
+trial   9 train F1 0.9405 | student_test F1 0.9638 | 8.7s
+trial  10 train F1 0.9421 | student_test F1 0.9632 | 10.0s
+trial  11 train F1 0.9520 | student_test F1 0.9713 | 9.2s
+trial  12 train F1 0.9548 | student_test F1 0.9728 | 7.4s
+trial  13 train F1 0.9473 | student_test F1 0.9697 | 11.3s
+trial  14 train F1 0.9516 | student_test F1 0.9692 | 7.6s
+trial  15 train F1 0.9547 | student_test F1 0.9724 | 9.5s
+trial  16 train F1 0.9479 | student_test F1 0.9712 | 7.2s
+trial  17 train F1 0.9544 | student_test F1 0.9725 | 12.6s
+trial  18 train F1 0.9499 | student_test F1 0.9692 | 7.9s
+trial  19 train F1 0.9539 | student_test F1 0.9730 | 7.7s
+trial  20 train F1 0.9500 | student_test F1 0.9709 | 8.5s
+trial  21 train F1 0.9518 | student_test F1 0.9718 | 10.5s
+trial  22 train F1 0.9496 | student_test F1 0.9720 | 8.6s
+trial  23 train F1 0.9537 | student_test F1 0.9725 | 10.1s
+trial  24 train F1 0.9522 | student_test F1 0.9710 | 7.2s
+trial  25 train F1 0.9465 | student_test F1 0.9685 | 15.0s
+trial  26 train F1 0.9564 | student_test F1 0.9727 | 7.0s
+trial  27 train F1 0.9557 | student_test F1 0.9723 | 7.8s
+trial  28 train F1 0.9483 | student_test F1 0.9705 | 10.8s
+trial  29 train F1 0.9529 | student_test F1 0.9708 | 9.3s
+trial  30 train F1 0.9533 | student_test F1 0.9720 | 7.9s
+trial  31 train F1 0.9549 | student_test F1 0.9705 | 7.8s
+trial  32 train F1 0.9526 | student_test F1 0.9707 | 10.0s
+trial  33 train F1 0.9529 | student_test F1 0.9711 | 8.7s
+trial  34 train F1 0.9547 | student_test F1 0.9720 | 7.2s
+trial  35 train F1 0.9472 | student_test F1 0.9678 | 8.8s
+trial  36 train F1 0.9550 | student_test F1 0.9707 | 6.6s
+trial  37 train F1 0.9556 | student_test F1 0.9715 | 6.7s
+trial  38 train F1 0.9532 | student_test F1 0.9713 | 8.2s
+trial  39 train F1 0.9532 | student_test F1 0.9695 | 10.4s
+{
+  "tag": "classifier_lgbm",
+  "scorer": "classifier",
+  "seed": 0,
+  "n_trials": 40,
+  "n_train_trips": 80,
+  "selection_metric": "mean route F1 on train trips",
+  "best_trial": 26,
+  "config": {
+    "beta_m": 1.177968450773493,
+    "route_cutoff_m": 212.29661982773186,
+    "max_gap_s": 48.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 7.33255606476118,
+    "emission_weight": 1.3009441479399553,
+    "sigma_m": 15.0
+  },
+  "tuned_for_scorer": "classifier",
+  "default_config": {
+    "beta_m": 8.0,
+    "route_cutoff_m": 600.0,
+    "max_gap_s": 15.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 4.0,
+    "emission_weight": 1.0,
+    "sigma_m": 15.0
+  },
+  "train_f1_default": 0.9422099831971472,
+  "train_f1_best": 0.9564374339823252,
+  "student_test_f1_default": 0.9658781650400329,
+  "student_test_f1_best": 0.9727334555553305,
+  "student_test_classifier_only_f1": 0.848124177511059
+}
+wrote artifacts/hmm_config.json

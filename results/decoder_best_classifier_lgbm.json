@@ -1,0 +1,33 @@
+{
+  "tag": "classifier_lgbm",
+  "scorer": "classifier",
+  "seed": 0,
+  "n_trials": 40,
+  "n_train_trips": 80,
+  "selection_metric": "mean route F1 on train trips",
+  "best_trial": 26,
+  "config": {
+    "beta_m": 1.177968450773493,
+    "route_cutoff_m": 212.29661982773186,
+    "max_gap_s": 48.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 7.33255606476118,
+    "emission_weight": 1.3009441479399553,
+    "sigma_m": 15.0
+  },
+  "tuned_for_scorer": "classifier",
+  "default_config": {
+    "beta_m": 8.0,
+    "route_cutoff_m": 600.0,
+    "max_gap_s": 15.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 4.0,
+    "emission_weight": 1.0,
+    "sigma_m": 15.0
+  },
+  "train_f1_default": 0.9422099831971472,
+  "train_f1_best": 0.9564374339823252,
+  "student_test_f1_default": 0.9658781650400329,
+  "student_test_f1_best": 0.9727334555553305,
+  "student_test_classifier_only_f1": 0.848124177511059
+}

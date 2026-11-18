@@ -1,0 +1,27 @@
+train rows 1667336 (80 trips), student_test rows 153280
+trial 0: cv log loss 0.1675
+trial 1: cv log loss 0.1660
+trial 2: cv log loss 0.1539
+trial 3: cv log loss 0.1612
+trial 4: cv log loss 0.1570
+trial 5: cv log loss 0.1647
+trial 6: cv log loss 0.1554
+trial 7: cv log loss 0.1600
+trial 8: cv log loss 0.1559
+trial 9: cv log loss 0.1545
+trial 10: cv log loss 0.1557
+trial 11: cv log loss 0.1491
+trial 12: cv log loss 0.1533
+trial 13: cv log loss 0.1567
+trial 14: cv log loss 0.1501
+best params {'num_leaves': 19, 'learning_rate': 0.023999798399578352, 'n_estimators': 150, 'min_child_samples': 211, 'subsample': 0.7478094967413188, 'colsample_bytree': 0.964770309105185, 'reg_lambda': 0.008826701051052098} cv log loss 0.14911778706973766
+lightgbm_baseline {"cv_mean": {"macro_f1": 0.8529716778346081, "top1_proxy": 0.7005211915665228, "log_loss": 0.17030622740143053}, "student_test": {"macro_f1": 0.8690882193543052, "top1_proxy": 0.797286012526096, "log_loss": 0.13587447119328566}, "seconds": 43.8}
+lightgbm_tuned {"cv_mean": {"macro_f1": 0.8490742777760917, "top1_proxy": 0.6986039270247014, "log_loss": 0.14911778706973766}, "student_test": {"macro_f1": 0.8670903945973747, "top1_proxy": 0.7979123173277661, "log_loss": 0.13907604986146743}, "seconds": 20.6}
+xgboost_baseline {"cv_mean": {"macro_f1": 0.8530059533821325, "top1_proxy": 0.7017093003017966, "log_loss": 0.16123221814632416}, "student_test": {"macro_f1": 0.8695790578416587, "top1_proxy": 0.8007828810020877, "log_loss": 0.13365423679351807}, "seconds": 33.4}
+/Users/prajwalm/Desktop/ML Hackathon/Ml Project/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/Users/prajwalm/Desktop/ML Hackathon/Ml Project/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/Users/prajwalm/Desktop/ML Hackathon/Ml Project/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+mlp_baseline {"cv_mean": {"macro_f1": 0.8483282768586019, "top1_proxy": 0.6939662594821664, "log_loss": 0.17648451526959738}, "student_test": {"macro_f1": 0.8665834218071456, "top1_proxy": 0.7925365344467641, "log_loss": 0.14056673645973206}, "seconds": 200.6}

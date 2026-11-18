@@ -1,0 +1,72 @@
+{
+  "seed": 0,
+  "tuning": {
+    "method": "Optuna TPE",
+    "trials": 15,
+    "objective": "3-fold group CV log loss",
+    "best_params": {
+      "num_leaves": 19,
+      "learning_rate": 0.023999798399578352,
+      "n_estimators": 150,
+      "min_child_samples": 211,
+      "subsample": 0.7478094967413188,
+      "colsample_bytree": 0.964770309105185,
+      "reg_lambda": 0.008826701051052098
+    },
+    "best_cv_log_loss": 0.14911778706973766
+  },
+  "models": {
+    "lightgbm_baseline": {
+      "cv_mean": {
+        "macro_f1": 0.8529716778346081,
+        "top1_proxy": 0.7005211915665228,
+        "log_loss": 0.17030622740143053
+      },
+      "student_test": {
+        "macro_f1": 0.8690882193543052,
+        "top1_proxy": 0.797286012526096,
+        "log_loss": 0.13587447119328566
+      },
+      "seconds": 43.8
+    },
+    "lightgbm_tuned": {
+      "cv_mean": {
+        "macro_f1": 0.8490742777760917,
+        "top1_proxy": 0.6986039270247014,
+        "log_loss": 0.14911778706973766
+      },
+      "student_test": {
+        "macro_f1": 0.8670903945973747,
+        "top1_proxy": 0.7979123173277661,
+        "log_loss": 0.13907604986146743
+      },
+      "seconds": 20.6
+    },
+    "xgboost_baseline": {
+      "cv_mean": {
+        "macro_f1": 0.8530059533821325,
+        "top1_proxy": 0.7017093003017966,
+        "log_loss": 0.16123221814632416
+      },
+      "student_test": {
+        "macro_f1": 0.8695790578416587,
+        "top1_proxy": 0.8007828810020877,
+        "log_loss": 0.13365423679351807
+      },
+      "seconds": 33.4
+    },
+    "mlp_baseline": {
+      "cv_mean": {
+        "macro_f1": 0.8483282768586019,
+        "top1_proxy": 0.6939662594821664,
+        "log_loss": 0.17648451526959738
+      },
+      "student_test": {
+        "macro_f1": 0.8665834218071456,
+        "top1_proxy": 0.7925365344467641,
+        "log_loss": 0.14056673645973206
+      },
+      "seconds": 200.6
+    }
+  }
+}
