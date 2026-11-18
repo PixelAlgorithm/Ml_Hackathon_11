@@ -1,12 +1,13 @@
-
 # Local datasets
 /data/raw/
 
-# Python cache
+# Python cache / environments / OS
 __pycache__/
 *.pyc
+.venv/
+.DS_Store
 
-# Generated candidate datasets
+# Generated candidate datasets (Person 1)
 /results/*.csv
 
 # Generated model files
