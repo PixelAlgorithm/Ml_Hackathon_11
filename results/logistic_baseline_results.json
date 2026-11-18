@@ -1,0 +1,73 @@
+{
+  "model": "LogisticRegression",
+  "seed": 20261118,
+  "hyperparameters": {
+    "max_iter": 250,
+    "class_weight": "balanced"
+  },
+  "features": [
+    "distance_m",
+    "log_distance_m",
+    "arc_length_m",
+    "heading_alignment",
+    "speed_mps",
+    "log_dt_prev_s",
+    "progress_on_arc",
+    "endpoint_distance_m",
+    "out_degree_from",
+    "in_degree_to"
+  ],
+  "label_method": "NEAREST supplied .route arc (pseudo-label)",
+  "cv_trip_grouped_folds": [
+    {
+      "candidate_macro_f1": 0.6241558185362005,
+      "candidate_precision_positive": 0.2789670580899927,
+      "candidate_recall_positive": 0.8162055335968379,
+      "candidate_log_loss": 0.5222585926999886,
+      "observation_top1_accuracy_proxy": 0.45906392378848543,
+      "observations": 7243,
+      "candidate_rows": 57944,
+      "pseudo_label_candidate_coverage": 0.908187215242303,
+      "fold": 1,
+      "fit_seconds": 0.3
+    },
+    {
+      "candidate_macro_f1": 0.6900787342281117,
+      "candidate_precision_positive": 0.3711346712104001,
+      "candidate_recall_positive": 0.7418947899583701,
+      "candidate_log_loss": 0.4381211284500884,
+      "observation_top1_accuracy_proxy": 0.659283225485316,
+      "observations": 8036,
+      "candidate_rows": 64288,
+      "pseudo_label_candidate_coverage": 0.9864360378297661,
+      "fold": 2,
+      "fit_seconds": 0.27
+    },
+    {
+      "candidate_macro_f1": 0.7282185537607359,
+      "candidate_precision_positive": 0.413104543234001,
+      "candidate_recall_positive": 0.8704323211528564,
+      "candidate_log_loss": 0.4507275024171753,
+      "observation_top1_accuracy_proxy": 0.6637549056842639,
+      "observations": 7899,
+      "candidate_rows": 63192,
+      "pseudo_label_candidate_coverage": 0.983922015444993,
+      "fold": 3,
+      "fit_seconds": 0.23
+    }
+  ],
+  "cv_mean_macro_f1": 0.680817702175016,
+  "cv_mean_observation_top1_proxy": 0.5940340183193551,
+  "student_test": {
+    "candidate_macro_f1": 0.7115933470644993,
+    "candidate_precision_positive": 0.38901686169722655,
+    "candidate_recall_positive": 0.886369600587834,
+    "candidate_log_loss": 0.45408522058274864,
+    "observation_top1_accuracy_proxy": 0.7755741127348643,
+    "observations": 19160,
+    "candidate_rows": 153280,
+    "pseudo_label_candidate_coverage": 0.9944154488517746
+  },
+  "train_seconds": 0.3063100999988819,
+  "test_inference_and_scoring_seconds": 0.16500140000061947
+}

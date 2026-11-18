@@ -1,0 +1,93 @@
+trial   0 train F1 0.9777 | student_test F1 0.9868 | 6.9s
+trial   1 train F1 0.9773 | student_test F1 0.9870 | 13.5s
+trial   2 train F1 0.9776 | student_test F1 0.9872 | 18.6s
+trial   3 train F1 0.9647 | student_test F1 0.9872 | 20.8s
+trial   4 train F1 0.9771 | student_test F1 0.9861 | 20.7s
+trial   5 train F1 0.9737 | student_test F1 0.9864 | 13.3s
+trial   6 train F1 0.9741 | student_test F1 0.9873 | 16.2s
+trial   7 train F1 0.9792 | student_test F1 0.9872 | 16.4s
+trial   8 train F1 0.9791 | student_test F1 0.9844 | 10.2s
+trial   9 train F1 0.9762 | student_test F1 0.9832 | 14.3s
+trial  10 train F1 0.9760 | student_test F1 0.9873 | 13.4s
+trial  11 train F1 0.9772 | student_test F1 0.9839 | 10.6s
+trial  12 train F1 0.9770 | student_test F1 0.9847 | 24.4s
+trial  13 train F1 0.9790 | student_test F1 0.9854 | 19.0s
+trial  14 train F1 0.9804 | student_test F1 0.9862 | 17.4s
+trial  15 train F1 0.9796 | student_test F1 0.9842 | 9.9s
+trial  16 train F1 0.9803 | student_test F1 0.9860 | 10.6s
+trial  17 train F1 0.9801 | student_test F1 0.9872 | 12.8s
+trial  18 train F1 0.9767 | student_test F1 0.9844 | 17.6s
+trial  19 train F1 0.9797 | student_test F1 0.9863 | 12.7s
+trial  20 train F1 0.9780 | student_test F1 0.9844 | 12.7s
+trial  21 train F1 0.9791 | student_test F1 0.9872 | 10.9s
+trial  22 train F1 0.9803 | student_test F1 0.9871 | 13.0s
+trial  23 train F1 0.9796 | student_test F1 0.9872 | 14.9s
+trial  24 train F1 0.9798 | student_test F1 0.9846 | 12.1s
+trial  25 train F1 0.9761 | student_test F1 0.9831 | 19.7s
+trial  26 train F1 0.9789 | student_test F1 0.9842 | 14.1s
+trial  27 train F1 0.9795 | student_test F1 0.9844 | 14.7s
+trial  28 train F1 0.9784 | student_test F1 0.9844 | 16.5s
+trial  29 train F1 0.9732 | student_test F1 0.9800 | 10.5s
+trial  30 train F1 0.9797 | student_test F1 0.9872 | 13.9s
+trial  31 train F1 0.9803 | student_test F1 0.9870 | 11.0s
+trial  32 train F1 0.9799 | student_test F1 0.9871 | 13.4s
+trial  33 train F1 0.9800 | student_test F1 0.9852 | 11.0s
+trial  34 train F1 0.9798 | student_test F1 0.9869 | 13.4s
+trial  35 train F1 0.9802 | student_test F1 0.9862 | 16.1s
+trial  36 train F1 0.9804 | student_test F1 0.9862 | 13.5s
+trial  37 train F1 0.9803 | student_test F1 0.9870 | 15.2s
+trial  38 train F1 0.9800 | student_test F1 0.9869 | 10.3s
+trial  39 train F1 0.9805 | student_test F1 0.9862 | 8.9s
+trial  40 train F1 0.9785 | student_test F1 0.9846 | 11.9s
+trial  41 train F1 0.9796 | student_test F1 0.9860 | 17.1s
+trial  42 train F1 0.9803 | student_test F1 0.9852 | 10.5s
+trial  43 train F1 0.9793 | student_test F1 0.9869 | 13.6s
+trial  44 train F1 0.9803 | student_test F1 0.9860 | 12.3s
+trial  45 train F1 0.9799 | student_test F1 0.9871 | 14.0s
+trial  46 train F1 0.9798 | student_test F1 0.9847 | 12.6s
+trial  47 train F1 0.9805 | student_test F1 0.9860 | 13.8s
+trial  48 train F1 0.9796 | student_test F1 0.9846 | 13.7s
+trial  49 train F1 0.9803 | student_test F1 0.9850 | 8.1s
+trial  50 train F1 0.9798 | student_test F1 0.9843 | 14.4s
+trial  51 train F1 0.9799 | student_test F1 0.9844 | 12.5s
+trial  52 train F1 0.9805 | student_test F1 0.9870 | 12.3s
+trial  53 train F1 0.9802 | student_test F1 0.9870 | 12.5s
+trial  54 train F1 0.9799 | student_test F1 0.9872 | 14.7s
+trial  55 train F1 0.9802 | student_test F1 0.9871 | 11.8s
+trial  56 train F1 0.9797 | student_test F1 0.9844 | 14.6s
+trial  57 train F1 0.9804 | student_test F1 0.9868 | 16.0s
+trial  58 train F1 0.9796 | student_test F1 0.9870 | 11.3s
+trial  59 train F1 0.9803 | student_test F1 0.9861 | 11.9s
+{
+  "tag": "distance",
+  "scorer": "distance",
+  "seed": 0,
+  "n_trials": 60,
+  "n_train_trips": 80,
+  "selection_metric": "mean route F1 on train trips",
+  "best_trial": 47,
+  "config": {
+    "beta_m": 12.63425600931437,
+    "route_cutoff_m": 523.2700159794854,
+    "max_gap_s": 50.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 7.871584789367655,
+    "emission_weight": 0.23939061029725667,
+    "sigma_m": 7.126344136873407
+  },
+  "tuned_for_scorer": "distance",
+  "default_config": {
+    "beta_m": 8.0,
+    "route_cutoff_m": 600.0,
+    "max_gap_s": 15.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 4.0,
+    "emission_weight": 1.0,
+    "sigma_m": 15.0
+  },
+  "train_f1_default": 0.9776597922853746,
+  "train_f1_best": 0.9805335662243577,
+  "student_test_f1_default": 0.9868217506127767,
+  "student_test_f1_best": 0.9859882909387953,
+  "student_test_classifier_only_f1": 0.5862148726483565
+}

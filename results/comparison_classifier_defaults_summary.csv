@@ -1,0 +1,7 @@
+scorer,metric,classifier_only,hmm,n_trips,hmm_config
+classifier,route_precision,0.7392738714383882,0.9492436216568516,10,defaults
+classifier,route_recall,0.9704956578131171,0.989928027091946,10,defaults
+classifier,route_f1,0.8338943144594968,0.9686461886533657,10,defaults
+classifier,continuity,0.6759029492755093,0.9959939138869902,10,defaults
+classifier,jumps,243.5,1.5,10,defaults
+classifier,pointwise_accuracy,N/A,N/A,10,defaults
