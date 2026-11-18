@@ -33,6 +33,7 @@
   .status.err { color:var(--gps); }
   .chk { display:flex; align-items:center; gap:6px; margin:2px 0; }
   .chk input { width:auto; }
+  .hint { font-size:11px; color:var(--muted); font-weight:400; line-height:1.3; margin-top:1px; text-align:left; }
   .note { font-size:12px; color:var(--muted); }
   @media (max-width:700px) { body { flex-direction:column; } aside { width:100%; max-width:none; max-height:45vh; } }
 </style>
@@ -67,10 +68,12 @@
 
   <div id="result" hidden>
     <table>
-      <thead><tr><th>Metric</th><th>Classifier</th><th>+ HMM</th></tr></thead>
+      <thead><tr><th>Score (what it means)</th><th>Classifier</th><th>+ HMM</th></tr></thead>
       <tbody id="metrics"></tbody>
     </table>
     <p class="note" id="info"></p>
+    <p class="note"><b>Classifier</b> = best road per GPS point, one point at a time. <b>+ HMM</b> = the same probabilities joined into one connected route.
+    Precision, recall and F1 are weighted by road length and ignore the order of roads, so they are optimistic; continuity and discontinuities show whether the path is really connected.</p>
   </div>
   <p class="note">The accuracy numbers are computed by the server. This page never receives the reference route.</p>
 </aside>
@@ -149,10 +152,15 @@ function draw(d) {
   applyToggles();
 
   const c = d.metrics_classifier_only, h = d.metrics_hmm;
-  const rows = [["Route F1", "route_f1"], ["Precision", "route_precision"], ["Recall", "route_recall"],
-                ["Continuity", "route_continuity"], ["Discontinuities", "n_discontinuities"]];
-  $("metrics").innerHTML = rows.map(([name, k]) =>
-    `<tr><td>${name}</td><td>${k === "n_discontinuities" ? c[k] : fmt(c[k])}</td>` +
+  // [label, key, plain-language meaning shown under the label and as a hover tooltip]
+  const rows = [
+    ["Route F1", "route_f1", "Overall match with the true roads. 1.0 = perfect. Mixes precision and recall."],
+    ["Precision", "route_precision", "Of the roads we predicted, the share that are really on the route. Low = extra wrong roads."],
+    ["Recall", "route_recall", "Of the true route's roads, the share we found. Low = missed roads."],
+    ["Continuity", "route_continuity", "Share of road-to-road steps that really connect. 1.0 = one unbroken path."],
+    ["Discontinuities", "n_discontinuities", "Number of 'teleport' jumps between roads that do not connect. 0 is best."]];
+  $("metrics").innerHTML = rows.map(([name, k, tip]) =>
+    `<tr title="${tip}"><td>${name}<div class="hint">${tip}</div></td><td>${k === "n_discontinuities" ? c[k] : fmt(c[k])}</td>` +
     `<td>${k === "n_discontinuities" ? h[k] : fmt(h[k])}</td></tr>`).join("");
   $("info").textContent = `${d.n_points} GPS points · scorer: ${d.scorer} · HMM breaks: ${d.hmm_breaks} · ` +
     `points without candidates: ${d.points_without_candidates}`;
