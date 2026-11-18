@@ -1,0 +1,17 @@
+
+# Local datasets
+/data/raw/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated candidate datasets
+/results/*.csv
+
+# Generated model files
+/results/*.joblib
+
+# Generated maps
+/results/*.html
+/results/*.png
