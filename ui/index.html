@@ -57,6 +57,7 @@
     <button id="reload" style="background:var(--panel);color:var(--ink);border:1px solid var(--line)">Reload trips</button>
   </div>
   <div id="status" class="status">Not connected.</div>
+  <div id="fileWarn" class="status err" hidden>Opened as a file: map tiles will be blocked. Run <code>cd ui &amp;&amp; python3 -m http.server 5173</code> and open <b>http://localhost:5173</b> instead.</div>
 
   <div class="legend">
     <div class="chk"><input type="checkbox" id="showGps" checked><span style="background:var(--gps)"></span>GPS points</div>
@@ -87,8 +88,13 @@ function status(msg, err = false) { $("status").textContent = msg; $("status").c
 // ---------- map ----------
 // API returns [lat, lon] pairs already, which is the order Leaflet wants.
 const map = L.map("map").setView([20, 0], 2);
+// OpenStreetMap blocks tile requests from pages opened as file:// (no Referer header), so
+// this page must be served over http (python3 -m http.server 5173). Warn if it is not.
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
   { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+if (location.protocol === "file:") {
+  document.getElementById("fileWarn").hidden = false;
+}
 const layers = { gps: L.layerGroup(), hmm: L.layerGroup(), cls: L.layerGroup() };
 Object.values(layers).forEach(l => l.addTo(map));
 

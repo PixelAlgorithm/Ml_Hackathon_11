@@ -79,8 +79,8 @@ After the real model exists, re-run `tune_decoder --scorer classifier --write-ar
 - First request slow - ensure `PATHSNAP_PRELOAD=1` and wait for `READY`.
 
 ## UI (`ui/index.html`)
-Static page (Leaflet + plain JS, no build). Start the API, then either open `ui/index.html`
-in a browser or `cd ui && python -m http.server 5173` and visit `http://localhost:5173`.
+Static page (Leaflet + plain JS, no build). Start the API, then serve the page: `cd ui && python3 -m http.server 5173` and visit `http://localhost:5173`.
+Do NOT double-click the file: OpenStreetMap blocks map tiles for `file://` pages (the page shows a warning).
 Set the API address in the sidebar (e.g. `http://<laptop-1-ip>:8000`), pick a trip, press
 Predict. It only calls `/health`, `/trips`, `/predict`; metrics come from the server and the
 reference route is never sent to the browser. Map tiles and Leaflet load from the internet.
