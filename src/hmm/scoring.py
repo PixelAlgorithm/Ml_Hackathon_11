@@ -70,11 +70,20 @@ class ClassifierScorer:
         except ImportError as e:
             raise RuntimeError(f"cannot import {feature_module}: {e}") from e
         self._features = getattr(mod, self.FEATURE_FN, None)
-        if self._features is None:
+        if self._features is None and not hasattr(mod, "build_inference_candidates"):
+            try:   # Person 1 keeps the builder in the submodule src.features.build_candidates
+                mod = importlib.import_module(feature_module + ".build_candidates")
+            except ImportError:
+                pass
+        # Mode B (Person 1's builder): it generates its OWN candidates + features per trip.
+        self._own = getattr(mod, "build_inference_candidates", None) if self._features is None else None
+        if self._features is None and self._own is None:
             raise RuntimeError(
                 f"{feature_module}.{self.FEATURE_FN}(trip, cand_arcs, cand_dist) does not exist yet. "
                 f"The classifier cannot be used without the team's feature builder "
                 f"(see the contract in src/hmm/scoring.py).")
+        self.feature_columns = list(getattr(mod, "FEATURE_COLUMNS", []))
+        self.provides_candidates = self._own is not None
         self.model = joblib.load(model_path)
         if not hasattr(self.model, "predict_proba"):
             raise TypeError(f"{type(self.model).__name__} has no predict_proba; the HMM needs "
@@ -90,7 +99,34 @@ class ClassifierScorer:
             raise ValueError(f"positive class {pos!r} not in model.classes_ {classes}")
         self._pos_col = classes.index(pos)
 
+    def candidates_and_scores(self, trip: Trip):
+        """Mode B: candidates, distances and log-emissions from Person 1's own builder.
+
+        Our Trip is converted to their Trip (lon/lat track + nodes + arcs, route=None, so no
+        labels can reach the builder). Their rows come ordered (obs_idx, rank) with top_k
+        candidates per GPS point; arc ids stay local to this trip."""
+        from src.data.raw import Trip as P1Trip
+        g = trip.graph
+        track = np.column_stack([trip.track_lonlat, trip.track_t])
+        t1 = P1Trip(trip.trip_id, "inference", track, g.nodes_lonlat, g.arcs, None)
+        df, _ = self._own(t1)
+        X = df[self.feature_columns]
+        if self.preprocessor is not None:
+            X = self.preprocessor.transform(X)
+        p = self.model.predict_proba(X)[:, self._pos_col]
+        T = len(trip.track_t)
+        order = np.argsort(df["obs_idx"].to_numpy(), kind="stable")
+        obs = df["obs_idx"].to_numpy()[order]
+        arcs_all, dist_all, p = df["arc_id"].to_numpy()[order], df["distance_m"].to_numpy()[order], p[order]
+        cuts = np.searchsorted(obs, np.arange(T + 1))
+        arcs = [arcs_all[cuts[k]:cuts[k + 1]].astype(np.int64) for k in range(T)]
+        dist = [dist_all[cuts[k]:cuts[k + 1]] for k in range(T)]
+        scores = [proba_log_emission(p[cuts[k]:cuts[k + 1]], self.temperature) for k in range(T)]
+        return arcs, dist, scores
+
     def score(self, trip, cand_arcs, cand_dist):
+        if self.provides_candidates:
+            raise RuntimeError("this scorer supplies its own candidates; use candidates_and_scores()")
         feats = self._features(trip, cand_arcs, cand_dist)
         if len(feats) != len(cand_arcs):
             raise ValueError("feature builder returned a different number of steps than candidates")

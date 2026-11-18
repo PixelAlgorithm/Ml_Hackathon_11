@@ -96,9 +96,13 @@ class Pipeline:
         trip, index = self._load(trip_id)
         g = trip.graph
         t1 = time.perf_counter()
-        arcs, dist = index.candidates(trip.track_xy, self.radius_m, self.max_k)
-        t2 = time.perf_counter()
-        scores = self.scorer.score(trip, arcs, dist)
+        if getattr(self.scorer, "provides_candidates", False):
+            arcs, dist, scores = self.scorer.candidates_and_scores(trip)   # Person 1's candidates
+            t2 = time.perf_counter()
+        else:
+            arcs, dist = index.candidates(trip.track_xy, self.radius_m, self.max_k)
+            t2 = time.perf_counter()
+            scores = self.scorer.score(trip, arcs, dist)
         t3 = time.perf_counter()
         argmax = np.array([a[np.argmax(s)] if len(a) else -1 for a, s in zip(arcs, scores)])
         dec = MapMatchHMM(g, self.cfg)
