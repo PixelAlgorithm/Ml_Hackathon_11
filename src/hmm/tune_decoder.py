@@ -43,14 +43,14 @@ def _init(data_dir, scorer_kind, artifacts):
 
 def _eval(args):
     tid, cfg_dict = args
-    if tid not in _W["preps"]:
-        _W["preps"][tid] = prepare(_W["data_dir"], tid)
     if _W["scorer_kind"] == "distance":
         scorer = DistanceScorer(cfg_dict["sigma_m"])
     else:
         if _W["scorer"] is None:
             _W["scorer"] = build_scorer("classifier", _W["artifacts"])
         scorer = _W["scorer"]
+    if tid not in _W["preps"]:
+        _W["preps"][tid] = prepare(_W["data_dir"], tid, scorer=scorer)
     out = run(_W["preps"][tid], HMMConfig.from_dict(cfg_dict), scorer)
     m = out["hmm"]
     return dict(f1=m["route_f1"], precision=m["route_precision"], recall=m["route_recall"],

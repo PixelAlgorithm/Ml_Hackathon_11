@@ -53,7 +53,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     paths = []
     for tid in a.trips or list_trip_ids(a.data_dir, a.partition):
-        prep = prepare(a.data_dir, tid)
+        prep = prepare(a.data_dir, tid, scorer=scorer)
         r = run(prep, cfg, scorer)
         t = prep.trip
         f = out / f"trip_{tid}.html"

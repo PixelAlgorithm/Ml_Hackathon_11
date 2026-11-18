@@ -29,8 +29,11 @@ class Prepared:
     cache: Dict[str, List[np.ndarray]] = field(default_factory=dict)   # scorer.name -> scores
 
 
-def prepare(data_dir, trip_id: str, radius_m: float = 50.0, max_k: int = 15) -> Prepared:
+def prepare(data_dir, trip_id: str, radius_m: float = 50.0, max_k: int = 15, scorer=None) -> Prepared:
     trip = load_trip(data_dir, trip_id, load_route=True)
+    if getattr(scorer, "provides_candidates", False):      # scorer brings its own candidates
+        arcs, dist, scores = scorer.candidates_and_scores(trip)
+        return Prepared(trip, arcs, dist, {scorer.name: scores})
     arcs, dist = ArcIndex(trip.graph).candidates(trip.track_xy, radius_m, max_k)
     return Prepared(trip, arcs, dist)
 

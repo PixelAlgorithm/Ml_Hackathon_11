@@ -65,7 +65,7 @@ def main():
 
     rows = []
     for tid in list_trip_ids(a.data_dir, a.partition):
-        prep = prepare(a.data_dir, tid)
+        prep = prepare(a.data_dir, tid, scorer=scorer)
         r = run(prep, cfg, scorer)
         row = dict(trip=tid, partition=a.partition, scorer=scorer.name, n_points=len(prep.trip.track_xy),
                    hmm_breaks=r["breaks"], points_without_candidates=r["empty"], decode_s=r["decode_s"])

@@ -1,10 +1,10 @@
 {
-  "beta_m": 12.63425600931437,
-  "route_cutoff_m": 523.2700159794854,
-  "max_gap_s": 50.0,
+  "beta_m": 1.8896403021495891,
+  "route_cutoff_m": 210.94408388240032,
+  "max_gap_s": 45.0,
   "backward_tol_m": 25.0,
-  "uturn_penalty": 7.871584789367655,
-  "emission_weight": 0.23939061029725667,
-  "sigma_m": 7.126344136873407,
-  "tuned_for_scorer": "distance"
+  "uturn_penalty": 4.391011843107027,
+  "emission_weight": 2.0431561842153894,
+  "sigma_m": 15.0,
+  "tuned_for_scorer": "classifier"
 }
