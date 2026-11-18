@@ -1,0 +1,7 @@
+scorer,metric,classifier_only,hmm,n_trips,hmm_config
+distance-gaussian,route_precision,0.5218037588641965,0.9755678454877665,10,artifacts/hmm_config.json
+distance-gaussian,route_recall,0.6741707654105971,0.9968588154440523,10,artifacts/hmm_config.json
+distance-gaussian,route_f1,0.5862148726483565,0.9859882909387953,10,artifacts/hmm_config.json
+distance-gaussian,continuity,0.3654105496647882,0.9999280057595392,10,artifacts/hmm_config.json
+distance-gaussian,jumps,329.7,0.1,10,artifacts/hmm_config.json
+distance-gaussian,pointwise_accuracy,N/A,N/A,10,artifacts/hmm_config.json
