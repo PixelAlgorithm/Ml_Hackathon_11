@@ -1,0 +1,33 @@
+{
+  "tag": "distance",
+  "scorer": "distance",
+  "seed": 0,
+  "n_trials": 60,
+  "n_train_trips": 80,
+  "selection_metric": "mean route F1 on train trips",
+  "best_trial": 47,
+  "config": {
+    "beta_m": 12.63425600931437,
+    "route_cutoff_m": 523.2700159794854,
+    "max_gap_s": 50.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 7.871584789367655,
+    "emission_weight": 0.23939061029725667,
+    "sigma_m": 7.126344136873407
+  },
+  "tuned_for_scorer": "distance",
+  "default_config": {
+    "beta_m": 8.0,
+    "route_cutoff_m": 600.0,
+    "max_gap_s": 15.0,
+    "backward_tol_m": 25.0,
+    "uturn_penalty": 4.0,
+    "emission_weight": 1.0,
+    "sigma_m": 15.0
+  },
+  "train_f1_default": 0.9776597922853746,
+  "train_f1_best": 0.9805335662243577,
+  "student_test_f1_default": 0.9868217506127767,
+  "student_test_f1_best": 0.9859882909387953,
+  "student_test_classifier_only_f1": 0.5862148726483565
+}

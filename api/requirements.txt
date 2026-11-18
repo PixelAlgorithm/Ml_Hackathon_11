@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+pyproj
+shapely>=2.0
+folium
+fastapi
+uvicorn
+pydantic>=2
+httpx
+pytest
