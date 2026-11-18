@@ -21,3 +21,22 @@ def macro_f1(df, score_col="score", threshold=0.5):
 def candidate_log_loss(df, score_col="score"):
     """Log loss of the candidate scores (scores must be probabilities 0 to 1)."""
     return float(log_loss(df["label"], df[score_col], labels=[0, 1]))
+
+
+def candidate_miss_rate(candidates, truth):
+    """Fraction of GPS points whose reference road is NOT in the candidate set.
+
+    candidates: DataFrame with columns trip_id, obs_idx, arc_id
+                (one row per GPS point and candidate road)
+    truth:      DataFrame with columns trip_id, obs_idx, true_arc_id
+                (one row per GPS point)
+    """
+    keys = ["trip_id", "obs_idx"]
+    merged = truth.merge(
+        candidates.rename(columns={"arc_id": "true_arc_id"})
+        .assign(hit=1)[keys + ["true_arc_id", "hit"]],
+        on=keys + ["true_arc_id"],
+        how="left",
+    )
+    hit = merged.groupby(keys)["hit"].max().fillna(0)
+    return float(1.0 - hit.mean())
